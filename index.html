@@ -4,8 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>傳統與人工智慧人物誌的設計實務與應用研究</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+
+  .material-symbols-rounded {
+    font-family: 'Material Symbols Rounded';
+    font-size: 28px;
+    color: var(--accent);
+    vertical-align: middle;
+    margin-right: 6px;
+    font-variation-settings: 'FILL' 1;
+  }
 
   :root {
     --bg: #0a0a0f;
@@ -265,10 +275,10 @@
     display: flex; align-items: center; justify-content: flex-end; padding-right: 8px;
     font-size: 12px; font-weight: 700; color: #fff;
   }
-  .bar-fill.anne-bar { background: linear-gradient(90deg, rgba(224,122,95,0.3), rgba(224,122,95,0.7)); }
+  .bar-fill.anne-bar { background: linear-gradient(90deg, rgba(28,229,141,0.15), rgba(28,229,141,0.45)); }
   .bar-fill.emily-bar { background: linear-gradient(90deg, rgba(28,229,141,0.3), rgba(28,229,141,0.7)); }
   .bar-val { font-size: 13px; text-align: center; }
-  .bar-val.anne-val { color: var(--accent2); }
+  .bar-val.anne-val { color: rgba(28,229,141,0.7); }
   .bar-val.emily-val { color: var(--accent); }
   .bar-header { font-size: 11px; color: var(--subtle); font-weight: 500; text-align: center; }
 
@@ -365,16 +375,25 @@
       <tr><td>以保真度衡量價值</td><td>不同性格設定必須能產生有意義的差異</td></tr>
       <tr><td>預設 AI 是人類的不完美替代品</td><td>差異本身具有分析價值</td></tr>
     </table>
-    <ul class="rq-list">
-      <li>如何建構一致且可區辨的 AI Persona 供設計研究使用？</li>
-      <li>不同性格設定的 AI Persona 在對話回應中呈現什麼樣的結構性差異？</li>
+  </div>
+</div>
+
+<!-- 4. Research Questions -->
+<div class="slide-wrapper" id="s4">
+  <div class="card" data-slide="4 / 19">
+    <div class="orb orb-green" style="width:350px;height:350px;bottom:-100px;right:-100px"></div>
+    <div class="section-label">研究問題</div>
+    <div class="slide-title">本研究的兩個研究問題</div>
+    <ul class="rq-list" style="max-width:800px">
+      <li style="font-size:16px;padding:18px 20px 18px 56px">如何建構一致且可區辨的 AI Persona 供設計研究使用？</li>
+      <li style="font-size:16px;padding:18px 20px 18px 56px">不同性格設定的 AI Persona 在對話回應中呈現什麼樣的結構性差異？</li>
     </ul>
   </div>
 </div>
 
-<!-- 4. DIVIDER: 文獻探討 -->
-<div class="slide-wrapper divider-slide" id="s4">
-  <div class="card" data-slide="4 / 19">
+<!-- 5. DIVIDER: 文獻探討 -->
+<div class="slide-wrapper divider-slide" id="s5">
+  <div class="card" data-slide="5 / 19">
     <div class="orb orb-green" style="width:400px;height:400px;bottom:-150px;right:-100px"></div>
     <div class="divider-num">01</div>
     <div class="divider-title">文獻探討</div>
@@ -383,8 +402,8 @@
 </div>
 
 <!-- 5. Literature -->
-<div class="slide-wrapper" id="s5">
-  <div class="card" data-slide="5 / 19">
+<div class="slide-wrapper" id="s6">
+  <div class="card" data-slide="6 / 19">
     <div class="section-label">文獻探討</div>
     <div class="slide-title">角色漂移問題使系統性建構方法論成為必要</div>
     <div class="two-col">
@@ -408,8 +427,8 @@
 </div>
 
 <!-- 6. Research gap -->
-<div class="slide-wrapper" id="s6">
-  <div class="card" data-slide="6 / 19">
+<div class="slide-wrapper" id="s7">
+  <div class="card" data-slide="7 / 19">
     <div class="orb orb-blue" style="width:250px;height:250px;bottom:-60px;left:-60px"></div>
     <div class="section-label">文獻探討</div>
     <div class="slide-title">現有研究聚焦保真度，忽略了差異的分析價值</div>
@@ -427,8 +446,8 @@
 </div>
 
 <!-- 7. DIVIDER: 研究方法 -->
-<div class="slide-wrapper divider-slide" id="s7">
-  <div class="card" data-slide="7 / 19">
+<div class="slide-wrapper divider-slide" id="s8">
+  <div class="card" data-slide="8 / 19">
     <div class="orb orb-orange" style="width:350px;height:350px;top:-100px;right:-80px"></div>
     <div class="divider-num">02</div>
     <div class="divider-title">研究方法</div>
@@ -437,8 +456,8 @@
 </div>
 
 <!-- 8. Method 1/2 -->
-<div class="slide-wrapper" id="s8">
-  <div class="card" data-slide="8 / 19">
+<div class="slide-wrapper" id="s9">
+  <div class="card" data-slide="9 / 19">
     <div class="section-label">研究方法 1/2</div>
     <div class="slide-title">採設計科學研究方法，分建構與驗證兩階段推進</div>
     <div class="highlight-box">
@@ -467,18 +486,7 @@
   </div>
 </div>
 
-<!-- 9. Quote slide -->
-<div class="slide-wrapper quote-slide" id="s9">
-  <div class="card" data-slide="9 / 19">
-    <div class="orb orb-green" style="width:300px;height:300px;top:50%;left:50%;transform:translate(-50%,-50%)"></div>
-    <div class="big-quote">
-      我懂應該長期持有，但我忍不住每小時都要看盤。
-    </div>
-    <div class="quote-author">— Z 世代 ETF 投資者的典型內心獨白<br><span style="font-size:12px;color:var(--subtle)">高度明顯的情緒與行為耦合特徵，使不同 Persona 之間的差異更容易被觀察和分析</span></div>
-  </div>
-</div>
-
-<!-- 10. DIVIDER: 建構階段 -->
+<!-- 9. DIVIDER: 建構階段 -->
 <div class="slide-wrapper divider-slide" id="s10">
   <div class="card" data-slide="10 / 19">
     <div class="orb orb-green" style="width:300px;height:300px;bottom:-80px;left:-60px"></div>
@@ -526,12 +534,12 @@
     <div class="slide-title">六個維度相互錨定，鎖定敘事邊界以抑制角色漂移</div>
     <p style="font-size:12px;color:var(--subtle);margin-bottom:6px">受 Park et al.（2023）啟發 — <strong>鎖定敘事邊界、賦能能動性、增強反思深度</strong></p>
     <div class="dim-grid">
-      <div class="dim-item"><div class="dim-name">基本資訊</div><div class="dim-desc">錨定確保敘事一致性的身份參數，建立角色起點與敘事邊界</div></div>
-      <div class="dim-item"><div class="dim-name">世界觀</div><div class="dim-desc">闡明形塑詮釋傾向與決策邏輯的信念系統</div></div>
-      <div class="dim-item"><div class="dim-name">行為模式</div><div class="dim-desc">捕捉日常應對策略，使不確定性導航可被觀察</div></div>
-      <div class="dim-item"><div class="dim-name">日常情境</div><div class="dim-desc">將人物誌置於生態有效的情境中，防止抽象化</div></div>
-      <div class="dim-item"><div class="dim-name">心理狀態</div><div class="dim-desc">提供情感輪廓，使情緒漂移、強度和調節的研究成為可能</div></div>
-      <div class="dim-item"><div class="dim-name">語言風格</div><div class="dim-desc">建立可辨識的口語標記，使聲音跨情境維持穩定</div></div>
+      <div class="dim-item"><div class="dim-name"><span class="material-symbols-rounded">badge</span>基本資訊</div><div class="dim-desc">錨定確保敘事一致性的身份參數，建立角色起點與敘事邊界</div></div>
+      <div class="dim-item"><div class="dim-name"><span class="material-symbols-rounded">public</span>世界觀</div><div class="dim-desc">闡明形塑詮釋傾向與決策邏輯的信念系統</div></div>
+      <div class="dim-item"><div class="dim-name"><span class="material-symbols-rounded">directions_run</span>行為模式</div><div class="dim-desc">捕捉日常應對策略，使不確定性導航可被觀察</div></div>
+      <div class="dim-item"><div class="dim-name"><span class="material-symbols-rounded">home</span>日常情境</div><div class="dim-desc">將人物誌置於生態有效的情境中，防止抽象化</div></div>
+      <div class="dim-item"><div class="dim-name"><span class="material-symbols-rounded">psychology</span>心理狀態</div><div class="dim-desc">提供情感輪廓，使情緒漂移、強度和調節的研究成為可能</div></div>
+      <div class="dim-item"><div class="dim-name"><span class="material-symbols-rounded">record_voice_over</span>語言風格</div><div class="dim-desc">建立可辨識的口語標記，使聲音跨情境維持穩定</div></div>
     </div>
     <p style="font-size:11px;color:var(--subtle);margin-top:10px;text-align:center">
       「是誰」與「相信什麼」→「如何行動」與「在哪裡行動」→「如何感受」與「如何表達」
@@ -640,7 +648,7 @@
     <div class="bar-chart">
       <div class="bar-row" style="margin-bottom:10px">
         <div></div><div></div>
-        <div class="bar-header" style="color:var(--accent2)">Anne</div>
+        <div class="bar-header" style="color:rgba(28,229,141,0.7)">Anne</div>
         <div class="bar-header" style="color:var(--accent)">Emily</div>
       </div>
       <div class="bar-row">
@@ -725,21 +733,36 @@
     <div class="slide-title">六維度方法論為 AI 時代設計研究建立可操作的框架</div>
     <div class="contrib-cards">
       <div class="contrib-card">
-        <div class="contrib-num">研究貢獻一</div>
-        <p>六維度劇本方法論有效抑制角色漂移，建構出<strong>一致</strong>（Anne M = 4.17，Emily M = 4.47）且<strong>可區辨</strong>（整體 M = 4.58）的 AI Persona</p>
+        <div class="contrib-num"><span class="material-symbols-rounded" style="font-size:20px">verified</span> 貢獻一</div>
+        <p>六維度方法論（基本資訊、世界觀、行為模式、日常情境、心理狀態、語言風格）有效抑制角色漂移，確保 AI Persona 的<strong>一致性</strong>。</p>
       </div>
       <div class="contrib-card">
-        <div class="contrib-num">研究貢獻二</div>
-        <p>將研究框架從保真度評估轉向<strong>差異分析取向</strong>，重新定位 AI Persona — 差異本身具有分析產出性的設計研究輔助工具</p>
+        <div class="contrib-num"><span class="material-symbols-rounded" style="font-size:20px">swap_horiz</span> 貢獻二</div>
+        <p>從保真度評估轉向<strong>差異分析取向</strong>，重新定義 AI Persona 在設計研究中的價值框架。</p>
       </div>
     </div>
-    <div style="margin-top:16px">
-      <p style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px">未來研究方向</p>
-      <ul>
-        <li>將方法論擴展至多元使用者類型與領域</li>
-        <li>發展 AI Persona 整合進迭代設計流程的工作流程</li>
-        <li>探索共創工作坊、原型測試等設計研究應用情境</li>
-      </ul>
+    <div style="margin-top:14px">
+      <p style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:8px">未來研究方向</p>
+      <div class="phase-row">
+        <div class="phase-item" style="text-align:center;padding:14px 12px">
+          <span class="material-symbols-rounded" style="font-size:32px;display:block;margin:0 auto 6px">group</span>
+          <h4>擴展至多元使用者類型</h4>
+          <p>驗證六維度方法論在不同研究情境與使用者族群中的適用性。</p>
+        </div>
+        <div class="phase-item" style="text-align:center;padding:14px 12px">
+          <span class="material-symbols-rounded" style="font-size:32px;display:block;margin:0 auto 6px">integration_instructions</span>
+          <h4>發展整合工作流程</h4>
+          <p>將 AI Persona 嵌入設計研究的完整流程，建立標準化操作指引。</p>
+        </div>
+        <div class="phase-item" style="text-align:center;padding:14px 12px">
+          <span class="material-symbols-rounded" style="font-size:32px;display:block;margin:0 auto 6px">diversity_3</span>
+          <h4>探索共創工作坊應用</h4>
+          <p>研究 AI Persona 在設計工作坊情境中促進團隊共識的潛力。</p>
+        </div>
+      </div>
+    </div>
+    <div class="highlight-box" style="margin-top:12px;font-size:13px;border-left-color:var(--accent)">
+      <strong>核心主張：</strong>AI Persona 不是更好的人物誌，而是不同性質的設計研究工具——它的價值在於可對話性、可探索性，以及差異的分析產出性。
     </div>
   </div>
 </div>
