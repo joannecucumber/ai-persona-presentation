@@ -77,7 +77,11 @@
   }
   .slide-title {
     font-size: 24px; font-weight: 700; color: var(--heading);
-    line-height: 1.4; margin-bottom: 20px;
+    line-height: 1.4; margin-bottom: 4px;
+  }
+  .slide-title-en {
+    font-size: 12px; font-weight: 400; color: var(--subtle);
+    letter-spacing: 0.02em; margin-bottom: 18px; opacity: 0.7;
   }
   p, li { font-size: 15px; line-height: 1.7; color: var(--body); }
   ul { padding-left: 1.2em; margin: 6px 0; }
@@ -352,6 +356,7 @@
     <div class="orb orb-green" style="width:300px;height:300px;top:-80px;right:-80px"></div>
     <div class="section-label">緒論 1/2</div>
     <div class="slide-title">傳統人物誌建構後即固定，<br>AI Persona 使人物誌從靜態文件變為可對話主體</div>
+    <div class="slide-title-en">Traditional personas are static once built — AI Persona transforms them into conversational agents</div>
     <div class="highlight-box">
       <strong>傳統人物誌的根本限制（Cooper, 1999）</strong><br>
       自提出以來即為設計研究核心工具，但一旦建構完成便難以捕捉動態變化，抽象化過程中有淪為刻板印象的風險（Salminen et al., 2018）
@@ -369,6 +374,7 @@
   <div class="card" data-slide="3 / 19">
     <div class="section-label">緒論 2/2</div>
     <div class="slide-title">AI Persona 的價值在於差異，而非與真人的相似度</div>
+    <div class="slide-title-en">The value of AI Persona lies in difference, not fidelity to real people</div>
     <table>
       <tr><th>過去研究的框架</th><th>本研究的前提</th></tr>
       <tr><td>AI 回應跟真人有多像？</td><td>能否系統性探索不同使用者類型</td></tr>
@@ -384,6 +390,7 @@
     <div class="orb orb-green" style="width:350px;height:350px;bottom:-100px;right:-100px"></div>
     <div class="section-label">研究問題</div>
     <div class="slide-title">本研究的兩個研究問題</div>
+    <div class="slide-title-en">Two Research Questions</div>
     <ul class="rq-list" style="max-width:800px">
       <li style="font-size:16px;padding:18px 20px 18px 56px">如何建構一致且可區辨的 AI Persona 供設計研究使用？</li>
       <li style="font-size:16px;padding:18px 20px 18px 56px">不同性格設定的 AI Persona 在對話回應中呈現什麼樣的結構性差異？</li>
@@ -406,6 +413,7 @@
   <div class="card" data-slide="6 / 19">
     <div class="section-label">文獻探討</div>
     <div class="slide-title">角色漂移問題使系統性建構方法論成為必要</div>
+    <div class="slide-title-en">Character drift necessitates a systematic construction methodology</div>
     <div class="two-col">
       <div class="col">
         <h3>大型語言模型的可能性</h3>
@@ -432,6 +440,7 @@
     <div class="orb orb-blue" style="width:250px;height:250px;bottom:-60px;left:-60px"></div>
     <div class="section-label">文獻探討</div>
     <div class="slide-title">現有研究聚焦保真度，忽略了差異的分析價值</div>
+    <div class="slide-title-en">Existing research focuses on fidelity, overlooking the analytical value of differences</div>
     <ul>
       <li><strong>人物誌生成：</strong>De Paoli（2025）; Shin et al.（2024）結合人類分群與 LLM 摘要</li>
       <li><strong>品質評估：</strong>Salminen et al.（2024）發現 LLM 生成人物誌傾向產出偏斜特徵</li>
@@ -460,6 +469,7 @@
   <div class="card" data-slide="9 / 19">
     <div class="section-label">研究方法 1/2</div>
     <div class="slide-title">採設計科學研究方法，分建構與驗證兩階段推進</div>
+    <div class="slide-title-en">Design Science Research: construction and evaluation in two phases</div>
     <div class="highlight-box">
       <strong>設計科學研究方法（Hevner et al., 2004）</strong><br>
       聚焦於發展與驗證新穎方法論作為設計產出物
@@ -501,6 +511,7 @@
   <div class="card" data-slide="11 / 19">
     <div class="section-label">建構階段 1/2</div>
     <div class="slide-title">三階段資料蒐集融合次級研究與真實使用者語言</div>
+    <div class="slide-title-en">Three-phase data collection blending secondary research with authentic user language</div>
     <div class="phase-row">
       <div class="phase-item">
         <div class="phase-num">1</div>
@@ -532,6 +543,7 @@
   <div class="card" data-slide="12 / 19">
     <div class="section-label">建構階段 2/2</div>
     <div class="slide-title">六個維度相互錨定，鎖定敘事邊界以抑制角色漂移</div>
+    <div class="slide-title-en">Six dimensions mutually anchor each other, constraining narrative boundaries to suppress character drift</div>
     <p style="font-size:12px;color:var(--subtle);margin-bottom:6px">受 Park et al.（2023）啟發 — <strong>鎖定敘事邊界、賦能能動性、增強反思深度</strong></p>
     <div class="dim-grid">
       <div class="dim-item"><div class="dim-name"><span class="material-symbols-rounded">badge</span>基本資訊</div><div class="dim-desc">錨定確保敘事一致性的身份參數，建立角色起點與敘事邊界</div></div>
@@ -552,6 +564,7 @@
   <div class="card" data-slide="13 / 19">
     <div class="section-label">建構結果</div>
     <div class="slide-title">Anne 與 Emily — 兩種截然不同的使用者心智模型</div>
+    <div class="slide-title-en">Anne and Emily — two distinctly different user mental models</div>
     <div class="persona-with-chat">
       <div class="persona-col">
         <div class="persona-card anne">
@@ -589,6 +602,7 @@
   <div class="card" data-slide="15 / 19">
     <div class="section-label">驗證階段</div>
     <div class="slide-title">三種評估工具交叉驗證一致性、可區辨性與感知品質</div>
+    <div class="slide-title-en">Three evaluation tools cross-validating consistency, distinguishability, and perceived quality</div>
     <div class="highlight-box">
       <strong>評估者：</strong>六位專業產品設計師（具三年以上經驗及使用者研究背景）
     </div>
@@ -619,6 +633,7 @@
     <div class="orb orb-green" style="width:250px;height:250px;top:-60px;left:-60px"></div>
     <div class="section-label">研究結果</div>
     <div class="slide-title">兩位 Persona 均維持跨對話一致性，且差異清晰可辨</div>
+    <div class="slide-title-en">Both Personas maintained cross-session consistency with clearly distinguishable differences</div>
     <div class="big-numbers">
       <div class="big-num-card">
         <div class="num">4.17</div>
@@ -645,6 +660,7 @@
   <div class="card" data-slide="17 / 19">
     <div class="section-label">研究結果</div>
     <div class="slide-title">人物誌感知量表（7 點量表）</div>
+    <div class="slide-title-en">Persona Perception Scale (7-point Likert scale)</div>
     <div class="bar-chart">
       <div class="bar-row" style="margin-bottom:10px">
         <div></div><div></div>
@@ -712,6 +728,7 @@
     <div class="orb orb-orange" style="width:250px;height:250px;bottom:-80px;right:-60px"></div>
     <div class="section-label">討論</div>
     <div class="slide-title">AI Persona 使設計師的內在模擬外顯化，<br>從閱讀理解轉向對話探索</div>
+    <div class="slide-title-en">AI Persona externalizes designers' mental simulation — from reading comprehension to conversational exploration</div>
     <table>
       <tr><th>傳統人物誌</th><th>AI Persona</th></tr>
       <tr><td>被動的描述對象</td><td>主動的敘事主體</td></tr>
@@ -731,6 +748,7 @@
     <div class="orb orb-blue" style="width:200px;height:200px;bottom:-40px;left:-40px"></div>
     <div class="section-label">結論與未來建議</div>
     <div class="slide-title">六維度方法論為 AI 時代設計研究建立可操作的框架</div>
+    <div class="slide-title-en">The six-dimension methodology establishes an actionable framework for design research in the AI era</div>
     <div class="contrib-cards">
       <div class="contrib-card">
         <div class="contrib-num"><span class="material-symbols-rounded" style="font-size:20px">verified</span> 貢獻一</div>
