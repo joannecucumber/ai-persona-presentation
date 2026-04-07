@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>傳統與人工智慧人物誌的設計實務與應用研究</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+
+  :root {
+    --bg: #0a0a0f;
+    --card-bg: #16161e;
+    --heading: #f0f0f5;
+    --body: #c8c8d4;
+    --accent: #1CE58D;
+    --accent-light: rgba(28,229,141,0.1);
+    --subtle: #6b6b80;
+    --border: #2a2a38;
+    --card-w: 1152px;
+    --card-h: 648px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+
+  body {
+    font-family: 'Noto Sans TC', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Each slide is a full-viewport snap point */
+  .slide-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+    position: relative;
+  }
+
+  /* 16:9 card */
+  .card {
+    width: var(--card-w);
+    height: var(--card-h);
+    background: var(--card-bg);
+    border-radius: 18px;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.2);
+    border: 1px solid var(--border);
+    padding: 52px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Slide number */
+  .card::after {
+    content: attr(data-slide);
+    position: absolute;
+    bottom: 20px;
+    right: 28px;
+    font-size: 12px;
+    color: var(--subtle);
+    font-weight: 400;
+    z-index: 2;
+  }
+  .title-slide .card::after { color: rgba(255,255,255,0.6); }
+
+  /* --- Typography --- */
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .slide-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--heading);
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+
+  p, li { font-size: 15px; line-height: 1.7; color: var(--body); }
+  ul { padding-left: 1.2em; margin: 6px 0; }
+  li { margin-bottom: 5px; }
+  li::marker { color: var(--accent); }
+  strong { font-weight: 600; }
+
+  /* --- Title slide --- */
+  .title-slide .card {
+    text-align: left;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 0;
+    background: url('cover.png') center/cover no-repeat;
+    position: relative;
+  }
+  .title-slide .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.1) 100%);
+    border-radius: 18px;
+  }
+  .title-slide .title-content {
+    position: relative;
+    z-index: 1;
+    padding: 0 56px 48px;
+  }
+  .title-slide h1 {
+    font-size: 34px;
+    font-weight: 900;
+    line-height: 1.35;
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+    background: none;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+  .meta { font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.9; }
+  .keywords { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+  .keywords span {
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+
+  /* --- Tables --- */
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 10px 0; }
+  th {
+    background: rgba(28,229,141,0.15);
+    color: var(--accent);
+    font-weight: 500;
+    padding: 8px 14px;
+    text-align: left;
+    border: none;
+  }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td { padding: 8px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
+
+  /* --- Highlight box --- */
+  .highlight-box {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  /* --- Blockquote --- */
+  blockquote {
+    background: rgba(255,255,255,0.04);
+    border-left: 3px solid var(--accent);
+    padding: 10px 16px;
+    margin: 10px 0;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--body);
+  }
+
+  /* --- Two columns --- */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 8px; }
+  .col {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .col h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .col p, .col li { font-size: 13.5px; }
+
+  /* --- RQ list --- */
+  .rq-list { counter-reset: rq; list-style: none; padding: 0; }
+  .rq-list li {
+    counter-increment: rq;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px 12px 48px;
+    margin-bottom: 8px;
+    position: relative;
+    font-size: 14px;
+  }
+  .rq-list li::before {
+    content: "RQ" counter(rq);
+    position: absolute;
+    left: 12px;
+    top: 11px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  /* --- Phase row --- */
+  .phase-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 8px; }
+  .phase-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .phase-num {
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+  }
+  .phase-item h4 { font-size: 14px; font-weight: 700; color: var(--heading); margin-bottom: 4px; }
+  .phase-item p { font-size: 12.5px; color: var(--body); margin: 2px 0; }
+
+  /* --- Dimension grid --- */
+  .dim-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 8px; }
+  .dim-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .dim-name { font-size: 14px; font-weight: 700; color: var(--accent); margin-bottom: 3px; }
+  .dim-desc { font-size: 12px; color: var(--body); line-height: 1.55; }
+
+  /* --- Persona cards --- */
+  .persona-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 8px; }
+  .persona-card {
+    border-radius: 12px;
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+  }
+  .persona-card.anne { background: rgba(224,122,95,0.08); border-left: 4px solid #e07a5f; }
+  .persona-card.emily { background: rgba(28,229,141,0.08); border-left: 4px solid var(--accent); }
+  .type-badge {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .anne .type-badge { background: rgba(224,122,95,0.2); color: #e07a5f; }
+  .emily .type-badge { background: rgba(28,229,141,0.15); color: var(--accent); }
+  .persona-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; color: var(--heading); }
+  .persona-card p { font-size: 13.5px; margin: 3px 0; }
+  .persona-card .quote {
+    font-style: italic;
+    font-size: 13px;
+    color: #999;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* --- Persona with chat layout --- */
+  .persona-with-chat {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .persona-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .chat-preview {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    background: #1e1e28;
+    flex: 1;
+    min-height: 0;
+  }
+  .chat-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  /* --- Contribution cards --- */
+  .contrib-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+  .contrib-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .contrib-num { font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+  .contrib-card p { font-size: 14px; }
+
+  /* --- Fullscreen mode --- */
+  body.fullscreen { overflow: hidden; }
+  body.fullscreen .slide-wrapper { position: fixed; top: 0; left: 0; }
+  body.fullscreen .card {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 60px 100px;
+  }
+
+  /* --- Keyboard hint --- */
+  .kb-hint {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    color: var(--subtle);
+    background: rgba(22,22,30,0.85);
+    backdrop-filter: blur(8px);
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    z-index: 999;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+
+  /* --- Print --- */
+  @media print {
+    html { scroll-snap-type: none; }
+    .slide-wrapper { height: auto; page-break-after: always; break-after: page; }
+    .card { box-shadow: none; border: 1px solid #ddd; }
+    .kb-hint { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="kb-hint" id="hint">
+  ← → 或 ↑ ↓ 翻頁 ｜ F 全螢幕 ｜ Esc 退出
+</div>
+
+<!-- Slide 1: Title -->
+<div class="slide-wrapper title-slide" id="s1">
+  <div class="card" data-slide="1 / 15">
+    <div class="title-content">
+      <h1>傳統與人工智慧人物誌的<br>設計實務與應用研究</h1>
+      <div class="meta">
+        簡潔安｜唐玄輝 指導<br>
+        國立臺灣科技大學 設計系
+      </div>
+      <div class="keywords">
+        <span>AI Persona</span>
+        <span>人物誌</span>
+        <span>設計研究</span>
+        <span>人機協作</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide-wrapper" id="s2">
+  <div class="card" data-slide="2 / 15">
+    <div class="section-label">緒論 1/2</div>
+    <div class="slide-title">傳統人物誌建構後即固定，AI Persona 使人物誌從靜態文件變為可對話主體</div>
+    <div class="highlight-box">
+      <strong>傳統人物誌的根本限制（Cooper, 1999）</strong><br>
+      自提出以來即為設計研究核心工具，但一旦建構完成便難以捕捉動態變化，抽象化過程中有淪為刻板印象的風險（Salminen et al., 2018）
+    </div>
+    <table>
+      <tr><th>傳統人物誌</th><th>AI Persona</th></tr>
+      <tr><td>被閱讀的靜態文件</td><td>可被訪談的主體</td></tr>
+      <tr><td>建構後固定不變</td><td>透過提示詞設計，建構可對話的人物誌</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide-wrapper" id="s3">
+  <div class="card" data-slide="3 / 15">
+    <div class="section-label">緒論 2/2</div>
+    <div class="slide-title">AI Persona 的價值在於差異，而非與真人的相似度</div>
+    <table>
+      <tr><th>過去研究的框架</th><th>本研究的前提</th></tr>
+      <tr><td>AI 回應跟真人有多像？</td><td>能否系統性探索不同使用者類型</td></tr>
+      <tr><td>以保真度衡量價值</td><td>不同性格設定必須能產生有意義的差異</td></tr>
+      <tr><td>預設 AI 是人類的不完美替代品</td><td>差異本身具有分析價值</td></tr>
+    </table>
+    <ul class="rq-list">
+      <li>如何建構一致且可區辨的 AI Persona 供設計研究使用？</li>
+      <li>不同性格設定的 AI Persona 在對話回應中呈現什麼樣的結構性差異？</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Slide 4 -->
+<div class="slide-wrapper" id="s4">
+  <div class="card" data-slide="4 / 15">
+    <div class="section-label">文獻探討</div>
+    <div class="slide-title">角色漂移問題使系統性建構方法論成為必要</div>
+    <div class="two-col">
+      <div class="col">
+        <h3>大型語言模型的可能性</h3>
+        <ul>
+          <li><strong>Shao et al.（2023）</strong> Character-LLM：模型能在較高層次模擬人格特質</li>
+          <li><strong>Park et al.（2023）</strong> 生成式代理人：具體生活情境是建構可信 AI 角色的關鍵 → 啟發本研究六維度設計</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>核心問題：角色漂移</h3>
+        <ul>
+          <li><strong>Tu et al.（2024）</strong> 角色漂移使 AI 角色人格不穩定</li>
+          <li><strong>Wang et al.（2024）</strong> 即使先進模型也難以在多輪對話中維持一致表現</li>
+        </ul>
+        <div class="highlight-box" style="margin-top:8px">若 Persona 人格不穩定，差異比較將失去意義</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 5 -->
+<div class="slide-wrapper" id="s5">
+  <div class="card" data-slide="5 / 15">
+    <div class="section-label">文獻探討</div>
+    <div class="slide-title">現有研究聚焦保真度，忽略了差異的分析價值</div>
+    <ul>
+      <li><strong>人物誌生成：</strong>De Paoli（2025）以 LLM 從訪談資料產生人物誌；Shin et al.（2024）結合人類分群與 LLM 摘要</li>
+      <li><strong>品質評估：</strong>Salminen et al.（2024）發現 LLM 生成人物誌傾向產出偏斜特徵</li>
+      <li><strong>互動應用：</strong>Sabbaghan & Brown（2024）以 LLM 驅動人物誌進行寫實對話訓練</li>
+    </ul>
+    <table>
+      <tr><th>既有框架（保真度評估）</th><th>本研究框架（差異分析取向）</th></tr>
+      <tr><td>AI Persona 回應與真人有多相似？</td><td>不同 AI Persona 在結構上有何差異？</td></tr>
+      <tr><td>將 AI 定位為不完美的人類模擬</td><td>差異本身具有分析產出性</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- Slide 6 -->
+<div class="slide-wrapper" id="s6">
+  <div class="card" data-slide="6 / 15">
+    <div class="section-label">研究方法 1/2</div>
+    <div class="slide-title">採設計科學研究方法，分建構與驗證兩階段推進</div>
+    <div class="highlight-box">
+      <strong>設計科學研究方法（Hevner et al., 2004）</strong><br>
+      聚焦於發展與驗證新穎方法論作為設計產出物，強調創造與評估用以解決已識別問題的產出物
+    </div>
+    <div class="two-col">
+      <div class="col">
+        <h3>建構階段</h3>
+        <ul>
+          <li>迭代六維度劇本方法論</li>
+          <li>三階段資料蒐集</li>
+          <li>建構兩位 AI Persona</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>驗證階段</h3>
+        <ul>
+          <li>招募六位專家評估者</li>
+          <li>一致性測試</li>
+          <li>可區辨性測試</li>
+          <li>人物誌感知量表</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 7 -->
+<div class="slide-wrapper" id="s7">
+  <div class="card" data-slide="7 / 15">
+    <div class="section-label">研究方法 2/2</div>
+    <div class="slide-title">Z 世代 ETF 投資者的情緒張力，使差異更易觀察</div>
+    <div class="two-col">
+      <div class="col">
+        <h3>研究情境：台灣 Z 世代 ETF 投資者</h3>
+        <ul>
+          <li>相較其他投資族群，更容易受短期市場波動和社群媒體影響</li>
+          <li>決策語言常呈現猶豫、焦慮和自我質疑的特徵</li>
+          <li>不確定性和內在張力的語言特徵，使其成為理想素材</li>
+        </ul>
+      </div>
+      <div class="col" style="display:flex;flex-direction:column;justify-content:center">
+        <blockquote>「我懂應該長期持有，但我忍不住每小時都要看盤。」</blockquote>
+        <div class="highlight-box" style="margin-top:10px">
+          高度明顯的情緒與行為耦合特徵 → 使不同 Persona 之間的差異更容易被觀察和分析
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 8 -->
+<div class="slide-wrapper" id="s8">
+  <div class="card" data-slide="8 / 15">
+    <div class="section-label">建構階段 1/2</div>
+    <div class="slide-title">三階段資料蒐集融合次級研究與真實使用者語言</div>
+    <div class="phase-row">
+      <div class="phase-item">
+        <div class="phase-num">1</div>
+        <h4>次級資料</h4>
+        <p><strong>工具：</strong>Gemini 2.5</p>
+        <p>配置為資深市場分析師，系統性研究台灣 Z 世代 ETF 市場</p>
+        <p><strong>產出：</strong>識別核心差異軸線 — 信心的來源</p>
+      </div>
+      <div class="phase-item">
+        <div class="phase-num">2</div>
+        <h4>初級資料</h4>
+        <p><strong>來源：</strong>PTT / Dcard</p>
+        <p>擷取兩類投資者的第一人稱敘事：外部確認型 vs. 內在信念型</p>
+        <p><strong>產出：</strong>捕捉真實情緒語言與社群用語</p>
+      </div>
+      <div class="phase-item">
+        <div class="phase-num">3</div>
+        <h4>劇本生成</h4>
+        <p><strong>工具：</strong>GPTs</p>
+        <p>整合兩階段資料，依六維度框架生成完整角色劇本</p>
+        <p><strong>關鍵：</strong>輸入 GPTs 後端固定，防止角色設定被覆寫</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 9 -->
+<div class="slide-wrapper" id="s9">
+  <div class="card" data-slide="9 / 15">
+    <div class="section-label">建構階段 2/2</div>
+    <div class="slide-title">六個維度相互錨定，鎖定敘事邊界以抑制角色漂移</div>
+    <p style="font-size:12px;color:var(--subtle);margin-bottom:6px">受 Park et al.（2023）啟發 — 實現三項功能：<strong>鎖定敘事邊界、賦能能動性、增強反思深度</strong></p>
+    <div class="dim-grid">
+      <div class="dim-item">
+        <div class="dim-name">基本資訊</div>
+        <div class="dim-desc">錨定確保敘事一致性的身份參數，建立角色起點與敘事邊界</div>
+      </div>
+      <div class="dim-item">
+        <div class="dim-name">世界觀</div>
+        <div class="dim-desc">闡明形塑詮釋傾向與決策邏輯的信念系統</div>
+      </div>
+      <div class="dim-item">
+        <div class="dim-name">行為模式</div>
+        <div class="dim-desc">捕捉日常應對策略，使不確定性導航可被觀察</div>
+      </div>
+      <div class="dim-item">
+        <div class="dim-name">日常情境</div>
+        <div class="dim-desc">將人物誌置於生態有效的情境中，防止抽象化</div>
+      </div>
+      <div class="dim-item">
+        <div class="dim-name">心理狀態</div>
+        <div class="dim-desc">提供情感輪廓，使情緒漂移、強度和調節的研究成為可能</div>
+      </div>
+      <div class="dim-item">
+        <div class="dim-name">語言風格</div>
+        <div class="dim-desc">建立可辨識的口語標記，使聲音跨情境維持穩定</div>
+      </div>
+    </div>
+    <p style="font-size:11px;color:var(--subtle);margin-top:10px;text-align:center">
+      「是誰」與「相信什麼」→「如何行動」與「在哪裡行動」→「如何感受」與「如何表達」
+    </p>
+  </div>
+</div>
+
+<!-- Slide 10 -->
+<div class="slide-wrapper" id="s10">
+  <div class="card" data-slide="10 / 15">
+    <div class="section-label">建構結果</div>
+    <div class="slide-title">Anne 與 Emily — 兩種截然不同的使用者心智模型</div>
+    <div class="persona-with-chat">
+      <div class="persona-col">
+        <div class="persona-card anne">
+          <span class="type-badge">外部確認型</span>
+          <h3>Anne（小安）</h3>
+          <p><strong>核心：</strong>23 歲行銷實習生，焦慮，受社群氣氛驅動</p>
+        </div>
+        <div class="chat-preview">
+          <img src="anne-chat.png" alt="Anne GPTs 對話截圖">
+        </div>
+      </div>
+      <div class="persona-col">
+        <div class="persona-card emily">
+          <span class="type-badge">內在信念型</span>
+          <h3>Emily（艾蜜莉）</h3>
+          <p><strong>核心：</strong>25 歲數據分析師，冷靜，依循內在框架</p>
+        </div>
+        <div class="chat-preview">
+          <img src="emily-chat.png" alt="Emily GPTs 對話截圖">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 11 -->
+<div class="slide-wrapper" id="s11">
+  <div class="card" data-slide="11 / 15">
+    <div class="section-label">驗證階段</div>
+    <div class="slide-title">三種評估工具交叉驗證一致性、可區辨性與感知品質</div>
+    <div class="highlight-box">
+      <strong>評估者：</strong>六位專業產品設計師（具三年以上經驗及使用者研究背景）
+    </div>
+    <table>
+      <tr><th>評估工具</th><th>做法</th><th>量表</th></tr>
+      <tr>
+        <td><strong>一致性測試</strong></td>
+        <td>與 Anne 進行三輪對話，各使用對應六個劇本維度的問題（Q1–Q6），比較各問題在三輪中的回應</td>
+        <td>5 點量表</td>
+      </tr>
+      <tr>
+        <td><strong>可區辨性測試</strong></td>
+        <td>與 Emily 進行一輪對話，使用相同六題，比較 Anne 和 Emily 的回應差異</td>
+        <td>5 點量表</td>
+      </tr>
+      <tr>
+        <td><strong>人物誌感知量表</strong></td>
+        <td>評估可信度、一致性、完整性、清晰度、同理心、使用意願（Salminen et al., 2020）</td>
+        <td>7 點量表</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- Slide 12 -->
+<div class="slide-wrapper" id="s12">
+  <div class="card" data-slide="12 / 15">
+    <div class="section-label">研究結果</div>
+    <div class="slide-title">兩位 Persona 均維持跨對話一致性，且差異清晰可辨</div>
+    <div class="two-col">
+      <div class="col">
+        <h3>一致性評估（5 點量表）</h3>
+        <table>
+          <tr><th>Persona</th><th>M</th><th>SD</th></tr>
+          <tr><td>Anne</td><td>4.17</td><td>0.85</td></tr>
+          <tr><td>Emily</td><td>4.47</td><td>0.67</td></tr>
+        </table>
+        <p style="font-size:11px;color:var(--subtle);margin-top:6px">Anne 略低反映角色本質（不確定性），非建構失敗</p>
+      </div>
+      <div class="col">
+        <h3>可區辨性評估（5 點量表）</h3>
+        <table>
+          <tr><th>維度</th><th>M</th><th>SD</th></tr>
+          <tr><td>Q1 自我介紹</td><td>4.50</td><td>0.58</td></tr>
+          <tr><td>Q2 下班活動</td><td>4.25</td><td>0.50</td></tr>
+          <tr><td>Q3 股市下跌感受</td><td>4.75</td><td>0.50</td></tr>
+          <tr><td>Q4 朋友建議賣出</td><td>4.75</td><td>0.50</td></tr>
+          <tr><td>Q5 投資意義</td><td>4.25</td><td>1.50</td></tr>
+          <tr><td>Q6 印象深刻經歷</td><td><strong>5.00</strong></td><td>0.00</td></tr>
+          <tr><td><strong>整體</strong></td><td><strong>4.58</strong></td><td>0.70</td></tr>
+        </table>
+      </div>
+    </div>
+    <blockquote>「冷靜程度差滿多的，Emily 專注在她的原則上，而 Anne 想看看別人怎麼做，所以她比較焦慮。」</blockquote>
+  </div>
+</div>
+
+<!-- Slide 13 -->
+<div class="slide-wrapper" id="s13">
+  <div class="card" data-slide="13 / 15">
+    <div class="section-label">研究結果</div>
+    <div class="slide-title">清晰度最高，可信度偏低反映工具定位而非缺陷</div>
+    <table>
+      <tr><th>維度</th><th>Anne M</th><th>SD</th><th>Emily M</th><th>SD</th><th>說明</th></tr>
+      <tr><td>清晰度</td><td><strong>6.22</strong></td><td>1.10</td><td><strong>6.50</strong></td><td>0.84</td><td>兩者最高分，角色特質清楚可辨</td></tr>
+      <tr><td>一致性</td><td>5.33</td><td>0.98</td><td>5.67</td><td>0.82</td><td>Emily 較高，符合理性人格設計</td></tr>
+      <tr><td>同理心</td><td>4.78</td><td>1.50</td><td>4.00</td><td>1.67</td><td>Anne 較高：尋求確認創造互動空間</td></tr>
+      <tr><td>可信度</td><td>3.67</td><td>1.63</td><td>4.17</td><td>1.47</td><td>偏低，反映 AI 與真人的邊界</td></tr>
+      <tr><td>完整性</td><td>4.33</td><td>2.05</td><td>4.50</td><td>1.87</td><td></td></tr>
+      <tr><td>使用意願</td><td>4.22</td><td>1.29</td><td>4.33</td><td>1.21</td><td>謹慎正面態度</td></tr>
+      <tr><td><strong>整體</strong></td><td><strong>4.76</strong></td><td></td><td><strong>4.86</strong></td><td></td><td></td></tr>
+    </table>
+    <div class="highlight-box">
+      可信度偏低 = 評估者辨識出 AI 與真人差距，保持批判意識 → 符合 AI Persona 作為<strong>輔助工具</strong>而非替代品的定位
+    </div>
+  </div>
+</div>
+
+<!-- Slide 14 -->
+<div class="slide-wrapper" id="s14">
+  <div class="card" data-slide="14 / 15">
+    <div class="section-label">討論</div>
+    <div class="slide-title">AI Persona 使設計師的內在模擬外顯化，從閱讀理解轉向對話探索</div>
+    <table>
+      <tr><th>傳統人物誌</th><th>AI Persona</th></tr>
+      <tr><td>被動的描述對象</td><td>主動的敘事主體</td></tr>
+      <tr><td>設計師閱讀後在腦中模擬「這個人會怎麼想」</td><td>內在模擬外顯化為實際對話</td></tr>
+      <tr><td>高度依賴個人詮釋能力，過程單向</td><td>能回應提問、展現立場，從閱讀理解轉向對話探索</td></tr>
+    </table>
+    <div class="highlight-box" style="margin-top:14px">
+      <strong>重要邊界</strong><br>
+      AI Persona 的回應來自預設劇本與模型生成能力，而非真實生命經驗。可信度評分相對較低正反映此邊界。AI Persona 是設計研究的<strong>輔助工具</strong>，而非真實使用者的替代品。
+    </div>
+  </div>
+</div>
+
+<!-- Slide 15 -->
+<div class="slide-wrapper" id="s15">
+  <div class="card" data-slide="15 / 15">
+    <div class="section-label">結論與未來建議</div>
+    <div class="slide-title">六維度方法論為 AI 時代設計研究建立可操作的框架</div>
+    <div class="contrib-cards">
+      <div class="contrib-card">
+        <div class="contrib-num">研究貢獻一</div>
+        <p>六維度劇本方法論有效抑制角色漂移，建構出<strong>一致</strong>（Anne M = 4.17，Emily M = 4.47）且<strong>可區辨</strong>（整體 M = 4.58）的 AI Persona，提供可操作的方法框架</p>
+      </div>
+      <div class="contrib-card">
+        <div class="contrib-num">研究貢獻二</div>
+        <p>將研究框架從保真度評估轉向<strong>差異分析取向</strong>，重新定位 AI Persona — 非人類替代品，而是差異本身具有分析產出性的設計研究輔助工具</p>
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <p style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px">未來研究方向</p>
+      <ul>
+        <li>將方法論擴展至多元使用者類型與領域</li>
+        <li>發展 AI Persona 整合進迭代設計流程的工作流程</li>
+        <li>探索共創工作坊、原型測試等設計研究應用情境</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const slides = document.querySelectorAll('.slide-wrapper');
+  let current = 0;
+  const total = slides.length;
+  const hint = document.getElementById('hint');
+
+  // Hide hint after 5s
+  setTimeout(() => { hint.style.opacity = '0'; }, 5000);
+
+  function goTo(i) {
+    if (i < 0 || i >= total) return;
+    current = i;
+    slides[i].scrollIntoView({ behavior: 'smooth' });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') {
+      e.preventDefault(); goTo(current + 1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
+      e.preventDefault(); goTo(current - 1);
+    } else if (e.key === 'Home') {
+      e.preventDefault(); goTo(0);
+    } else if (e.key === 'End') {
+      e.preventDefault(); goTo(total - 1);
+    } else if (e.key === 'f' || e.key === 'F') {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+    }
+  });
+
+  // Track current slide from scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(slides).indexOf(entry.target);
+        if (idx >= 0) current = idx;
+      }
+    });
+  }, { threshold: 0.6 });
+  slides.forEach(s => observer.observe(s));
+})();
+</script>
+</body>
+</html>
