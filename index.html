@@ -387,7 +387,7 @@
 </div>
 
 <!-- 2. Intro 1/2 -->
-<div class="slide-wrapper" id="s2" data-notes="自 Cooper 在 1999 年提出人物誌以來，它一直是設計研究的核心工具。但傳統人物誌有一個根本限制：一旦建構完成就固定不變，難以捕捉使用者的動態變化。&#10;&#10;生成式 AI 的出現帶來轉機——透過提示詞設計，人物誌不再只是被閱讀的文件，而是可以被訪談的主體。">
+<div class="slide-wrapper" id="s2" data-notes="人物誌從 1999 年 Cooper 提出以來，一直是我們設計研究最重要的工具。但它有一個很根本的問題——做完就定了，使用者的情緒變化、情境轉換，人物誌都追不上。&#10;&#10;生成式 AI 出現之後，事情開始不一樣。我們可以透過提示詞設計，讓人物誌從一份「被讀的文件」變成一個「可以跟你對話的人」。這就是 AI Persona。">
   <div class="card" data-slide="2 / 20">
     <div class="orb orb-green" style="width:300px;height:300px;top:-80px;right:-80px"></div>
     <div class="section-label">緒論 1/2</div>
@@ -406,7 +406,7 @@
 </div>
 
 <!-- 3. Intro 2/2 -->
-<div class="slide-wrapper" id="s3" data-notes="過去研究大多問「AI 回應跟真人有多像？」，用保真度來衡量 AI Persona 的價值。&#10;&#10;但我們認為，AI Persona 的價值不在於模仿真人，而在於能否讓不同性格設定產生有意義的差異。差異本身就具有分析價值。">
+<div class="slide-wrapper" id="s3" data-notes="過去大家研究 AI Persona，都在問同一個問題：「它跟真人像不像？」像就是好的，不像就是差的。&#10;&#10;但我們想問的完全不同。我們問的是：如果我設定兩個不同性格的 AI Persona，它們之間的差異有沒有意義？這些差異能不能幫設計師做出更好的判斷？&#10;&#10;簡單說，我們把框架從「保真度評估」轉移到「差異分析」。AI Persona 不是要取代真人，而是要讓差異本身成為有用的設計資源。">
   <div class="card" data-slide="3 / 20">
     <div class="section-label">緒論 2/2</div>
     <div class="slide-title">AI Persona 的價值在於差異，而非與真人的相似度</div>
@@ -455,7 +455,7 @@
 </div>
 
 <!-- 5. Literature -->
-<div class="slide-wrapper" id="s6" data-notes="文獻告訴我們兩件事：第一，LLM 確實有能力模擬人格特質，Park 等人的生成式代理人研究證明了具體生活情境是關鍵。&#10;&#10;第二，角色漂移是核心挑戰——即使是先進模型也難以在多輪對話中維持一致。如果人格不穩定，差異比較就失去意義，這就是為什麼我們需要系統性的建構方法論。">
+<div class="slide-wrapper" id="s6" data-notes="文獻告訴我們兩件重要的事。&#10;&#10;好消息是：LLM 確實能模擬人格。Park 等人 2023 年的生成式代理人研究證明，只要給 AI 夠具體的生活情境——職業、人際關係、日常作息——它就能扮演出可信的角色。這直接啟發了我們的六維度設計。&#10;&#10;壞消息是：角色漂移。聊個幾輪，AI 就開始「出戲」。Tu 和 Wang 等人 2024 年的研究都指出，即使最先進的模型也很難在多輪對話中保持一致。&#10;&#10;這就是問題所在——如果 Persona 的人格會飄，那我們做的差異比較就沒有意義了。所以，我們需要一套系統性的建構方法。">
   <div class="card" data-slide="6 / 20">
     <div class="section-label">文獻探討</div>
     <div class="slide-title">角色漂移問題使系統性建構方法論成為必要</div>
@@ -481,7 +481,7 @@
 </div>
 
 <!-- 6. Research gap -->
-<div class="slide-wrapper" id="s7" data-notes="現有 AI 人物誌研究從三個方向展開，但都聚焦在保真度評估。我們提出不同的框架：不問「像不像」，而問「差異揭示了什麼」。&#10;&#10;這個框架轉移，將 AI Persona 從「不完美的人類模擬」重新定位為「差異本身具有分析產出性的設計研究工具」。">
+<div class="slide-wrapper" id="s7" data-notes="我們先來看目前學界做了什麼。&#10;&#10;三個方向：第一，人物誌生成——De Paoli 證明 LLM 能從訪談資料產生人物誌，Shin 等人發現人類分群專業加上 LLM 摘要能力，效果比單獨用任一方都好。&#10;&#10;第二，品質評估——Salminen 等人發現 LLM 生成的人物誌會傾向產出偏斜特徵，這是要注意的風險。&#10;&#10;第三，互動應用——Sabbaghan 和 Brown 證明 LLM 驅動的人物誌確實能進行寫實的對話訓練。&#10;&#10;但這三個方向有一個共同盲點：都在問「AI 跟真人有多像」。沒有人問過一個更根本的問題——不同 AI Persona 之間的差異本質是什麼？這些差異能揭示什麼？&#10;&#10;這就是我們的研究缺口。我們把 AI Persona 從「不完美的替代品」重新定位為「差異本身就有分析價值的設計工具」。">
   <div class="card" data-slide="7 / 20">
     <div class="orb orb-blue" style="width:250px;height:250px;bottom:-60px;left:-60px"></div>
     <div class="section-label">文獻探討</div>
@@ -511,7 +511,7 @@
 </div>
 
 <!-- 8. Method 1/2 -->
-<div class="slide-wrapper" id="s9" data-notes="我們採用 Hevner 等人的設計科學研究方法，分為建構和驗證兩個階段。&#10;&#10;建構階段：迭代開發六維度劇本方法論，透過三階段資料蒐集，建構兩位 AI Persona。&#10;&#10;驗證階段：招募六位專家設計師，以一致性測試、可區辨性測試和人物誌感知量表三種工具進行評估。">
+<div class="slide-wrapper" id="s9" data-notes="方法論上，我們採用設計科學研究方法。簡單說就是「先做一個東西出來，再驗證它有沒有用」。&#10;&#10;建構階段：我們開發了六維度劇本方法論，透過三階段蒐集資料，最後建構出兩位性格截然不同的 AI Persona。&#10;&#10;驗證階段：找了六位有三年以上經驗的產品設計師來當評估者，用三種工具測試——一致性、可區辨性、還有人物誌感知量表。&#10;&#10;接下來我會分別介紹這兩個階段的細節。">
   <div class="card" data-slide="9 / 20">
     <div class="section-label">研究方法 1/2</div>
     <div class="slide-title">採設計科學研究方法，分建構與驗證兩階段推進</div>
@@ -674,7 +674,7 @@
 </div>
 
 <!-- 16. BIG NUMBERS: Results -->
-<div class="slide-wrapper" id="s16" data-notes="結果相當正面：&#10;&#10;Anne 一致性 4.17、Emily 4.47，都在高分區間。Anne 略低其實反映她角色本質中的不確定性，不是建構失敗。&#10;&#10;可區辨性整體 4.58，尤其 Q6 語言風格達到滿分 5.00——評估者一致認為兩人的說話方式完全不同。&#10;&#10;一位評估者說：「冷靜程度差滿多的，Emily 專注在她的原則上，而 Anne 想看別人怎麼做。」">
+<div class="slide-wrapper" id="s16" data-notes="結果出來了，三個數字跟大家報告。&#10;&#10;一致性：Anne 4.17、Emily 4.47，五點量表都在高分區。Anne 比較低是因為她的角色設定本來就比較不確定、比較焦慮，所以回應自然會有些波動——這不是方法論的問題，反而證明角色設計是有效的。&#10;&#10;可區辨性：整體 4.58。最亮眼的是 Q6 語言風格，直接拿到滿分 5.00——每個評估者都說兩個人講話完全不一樣。&#10;&#10;有一位評估者的回饋很到位，她說：「冷靜程度差滿多的，Emily 專注在她的原則上，而 Anne 想看看別人怎麼做，所以她比較焦慮。」這正是我們要的效果。">
   <div class="card" data-slide="16 / 20">
     <div class="orb orb-green" style="width:250px;height:250px;top:-60px;left:-60px"></div>
     <div class="section-label">研究結果</div>
