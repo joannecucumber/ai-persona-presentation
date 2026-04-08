@@ -332,8 +332,8 @@
   body.show-notes .slide-wrapper {
     justify-content: flex-start; padding-left: calc((100vw - var(--card-w) - 380px) / 2);
   }
-  body.show-notes .slide-wrapper::after {
-    content: attr(data-notes);
+  .notes-panel {
+    display: none;
     width: 340px; flex-shrink: 0; margin-left: 24px;
     background: rgba(22,22,30,0.95); border: 1px solid var(--border);
     border-radius: 14px; padding: 28px 24px;
@@ -341,12 +341,13 @@
     align-self: center; max-height: var(--card-h);
     overflow-y: auto; white-space: pre-wrap;
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    user-select: text; cursor: text;
   }
+  body.show-notes .notes-panel { display: block; }
   body.show-notes .notes-toggle { color: var(--accent); border-color: var(--accent); }
 
-  /* scrollbar for notes */
-  body.show-notes .slide-wrapper::after::-webkit-scrollbar { width: 4px; }
-  body.show-notes .slide-wrapper::after::-webkit-scrollbar-thumb {
+  .notes-panel::-webkit-scrollbar { width: 4px; }
+  .notes-panel::-webkit-scrollbar-thumb {
     background: var(--border); border-radius: 2px;
   }
 
@@ -951,6 +952,15 @@
     } else if (e.key === 'n' || e.key === 'N') {
       document.body.classList.toggle('show-notes');
     }
+  });
+
+  // Create notes panels from data-notes
+  slides.forEach(s => {
+    const notes = s.getAttribute('data-notes');
+    const panel = document.createElement('div');
+    panel.className = 'notes-panel';
+    panel.textContent = notes || '';
+    s.appendChild(panel);
   });
 
   const observer = new IntersectionObserver((entries) => {
