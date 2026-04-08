@@ -842,52 +842,83 @@
     <div class="section-label">研究結果</div>
     <div class="slide-title">人物誌感知量表（7 點量表）</div>
     <div class="slide-title-en">Persona Perception Scale (7-point Likert scale)</div>
-    <div style="display:flex;gap:16px;font-size:12px;margin-bottom:8px">
-      <span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:12px;border-radius:3px;background:rgba(160,170,190,0.5)"></span><span style="color:#a0aabe">Anne</span></span>
-      <span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:12px;border-radius:3px;background:rgba(28,229,141,0.65)"></span><span style="color:var(--accent)">Emily</span></span>
-    </div>
-    <div class="bar-chart">
-      <div class="bar-row">
-        <div class="bar-label">清晰度</div>
-        <div class="bar-pair">
-          <div class="bar-track"><div class="bar-fill anne-bar" style="width:88.9%">6.22</div></div>
-          <div class="bar-track"><div class="bar-fill emily-bar" style="width:92.9%">6.50</div></div>
-        </div>
+    <div style="display:flex;gap:40px;align-items:center;margin-top:4px">
+      <!-- Radar chart -->
+      <div style="flex-shrink:0">
+        <svg width="380" height="380" viewBox="-200 -200 400 400" style="display:block">
+          <!-- Grid rings -->
+          <g stroke="rgba(255,255,255,0.08)" fill="none" stroke-width="1">
+            <polygon points="0,-140 121.2,-70 121.2,70 0,140 -121.2,70 -121.2,-70"/>
+            <polygon points="0,-105 90.9,-52.5 90.9,52.5 0,105 -90.9,52.5 -90.9,-52.5"/>
+            <polygon points="0,-70 60.6,-35 60.6,35 0,70 -60.6,35 -60.6,-35"/>
+            <polygon points="0,-35 30.3,-17.5 30.3,17.5 0,35 -30.3,17.5 -30.3,-17.5"/>
+          </g>
+          <!-- Axis lines -->
+          <g stroke="rgba(255,255,255,0.06)" stroke-width="1">
+            <line x1="0" y1="0" x2="0" y2="-140"/>
+            <line x1="0" y1="0" x2="121.2" y2="-70"/>
+            <line x1="0" y1="0" x2="121.2" y2="70"/>
+            <line x1="0" y1="0" x2="0" y2="140"/>
+            <line x1="0" y1="0" x2="-121.2" y2="70"/>
+            <line x1="0" y1="0" x2="-121.2" y2="-70"/>
+          </g>
+          <!-- Anne polygon: 清6.22 一5.33 同4.78 完4.33 使4.22 信3.67 (scale /7*140) -->
+          <polygon points="0,-124.4 108.2,-52.3 82.0,56.7 0,86.6 -72.6,42.0 -72.6,-37.6"
+            fill="rgba(160,170,190,0.15)" stroke="rgba(160,170,190,0.6)" stroke-width="2"/>
+          <!-- Emily polygon: 清6.50 一5.67 同4.00 完4.50 使4.33 信4.17 -->
+          <polygon points="0,-130 98.2,-56.7 69.3,46.7 0,90 -74.7,43.3 -82.3,-41.7"
+            fill="rgba(28,229,141,0.1)" stroke="rgba(28,229,141,0.6)" stroke-width="2"/>
+          <!-- Anne dots -->
+          <g fill="rgba(160,170,190,0.8)">
+            <circle cx="0" cy="-124.4" r="3.5"/>
+            <circle cx="108.2" cy="-52.3" r="3.5"/>
+            <circle cx="82.0" cy="56.7" r="3.5"/>
+            <circle cx="0" cy="86.6" r="3.5"/>
+            <circle cx="-72.6" cy="42.0" r="3.5"/>
+            <circle cx="-72.6" cy="-37.6" r="3.5"/>
+          </g>
+          <!-- Emily dots -->
+          <g fill="rgba(28,229,141,0.9)">
+            <circle cx="0" cy="-130" r="3.5"/>
+            <circle cx="98.2" cy="-56.7" r="3.5"/>
+            <circle cx="69.3" cy="46.7" r="3.5"/>
+            <circle cx="0" cy="90" r="3.5"/>
+            <circle cx="-74.7" cy="43.3" r="3.5"/>
+            <circle cx="-82.3" cy="-41.7" r="3.5"/>
+          </g>
+          <!-- Labels -->
+          <g fill="var(--body)" font-size="12" font-family="Noto Sans TC, sans-serif" text-anchor="middle">
+            <text x="0" y="-152">清晰度</text>
+            <text x="138" y="-68" text-anchor="start">一致性</text>
+            <text x="138" y="78" text-anchor="start">同理心</text>
+            <text x="0" y="164">完整性</text>
+            <text x="-138" y="78" text-anchor="end">使用意願</text>
+            <text x="-138" y="-68" text-anchor="end">可信度</text>
+          </g>
+          <!-- Scale labels -->
+          <g fill="var(--subtle)" font-size="9" text-anchor="middle">
+            <text x="8" y="-32">2</text>
+            <text x="8" y="-67">4</text>
+            <text x="8" y="-102">6</text>
+          </g>
+        </svg>
       </div>
-      <div class="bar-row">
-        <div class="bar-label">一致性</div>
-        <div class="bar-pair">
-          <div class="bar-track"><div class="bar-fill anne-bar" style="width:76.1%">5.33</div></div>
-          <div class="bar-track"><div class="bar-fill emily-bar" style="width:81.0%">5.67</div></div>
+      <!-- Legend + data -->
+      <div style="flex:1">
+        <div style="display:flex;gap:20px;font-size:12px;margin-bottom:16px">
+          <span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:3px;background:rgba(160,170,190,0.6)"></span><span style="color:#a0aabe">Anne</span></span>
+          <span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:3px;background:rgba(28,229,141,0.6)"></span><span style="color:var(--accent)">Emily</span></span>
         </div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">同理心</div>
-        <div class="bar-pair">
-          <div class="bar-track"><div class="bar-fill anne-bar" style="width:68.3%">4.78</div></div>
-          <div class="bar-track"><div class="bar-fill emily-bar" style="width:57.1%">4.00</div></div>
-        </div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">完整性</div>
-        <div class="bar-pair">
-          <div class="bar-track"><div class="bar-fill anne-bar" style="width:61.9%">4.33</div></div>
-          <div class="bar-track"><div class="bar-fill emily-bar" style="width:64.3%">4.50</div></div>
-        </div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">使用意願</div>
-        <div class="bar-pair">
-          <div class="bar-track"><div class="bar-fill anne-bar" style="width:60.3%">4.22</div></div>
-          <div class="bar-track"><div class="bar-fill emily-bar" style="width:61.9%">4.33</div></div>
-        </div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">可信度</div>
-        <div class="bar-pair">
-          <div class="bar-track"><div class="bar-fill anne-bar" style="width:52.4%">3.67</div></div>
-          <div class="bar-track"><div class="bar-fill emily-bar" style="width:59.6%">4.17</div></div>
-        </div>
+        <table style="font-size:12px">
+          <tr><th>維度</th><th>Anne</th><th>Emily</th><th>說明</th></tr>
+          <tr><td>清晰度</td><td><strong>6.22</strong></td><td><strong>6.50</strong></td><td>兩者最高，角色特質清楚可辨</td></tr>
+          <tr><td>一致性</td><td>5.33</td><td>5.67</td><td>Emily 較高，符合理性人格</td></tr>
+          <tr><td>同理心</td><td>4.78</td><td>4.00</td><td>Anne 較高：尋求確認創造互動</td></tr>
+          <tr><td>完整性</td><td>4.33</td><td>4.50</td><td></td></tr>
+          <tr><td>使用意願</td><td>4.22</td><td>4.33</td><td>謹慎正面</td></tr>
+          <tr><td>可信度</td><td>3.67</td><td>4.17</td><td>反映 AI 與真人的邊界</td></tr>
+          <tr><td><strong>整體</strong></td><td><strong>4.76</strong></td><td><strong>4.86</strong></td><td></td></tr>
+        </table>
       </div>
     </div>
     <div class="highlight-box" style="margin-top:6px">
