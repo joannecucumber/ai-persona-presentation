@@ -265,9 +265,11 @@
   /* --- Bar chart --- */
   .bar-chart { margin: 8px 0; }
   .bar-row {
-    display: grid; grid-template-columns: 80px 1fr 50px 50px;
-    gap: 10px; align-items: center; margin-bottom: 6px; font-size: 13px;
+    display: grid; grid-template-columns: 70px 1fr;
+    gap: 10px; align-items: center; margin-bottom: 4px; font-size: 13px;
   }
+  .bar-pair { display: flex; flex-direction: column; gap: 2px; }
+  .bar-pair .bar-track { height: 18px; }
   .bar-label { color: var(--body); text-align: right; font-weight: 500; }
   .bar-track {
     height: 28px; background: rgba(255,255,255,0.06); border-radius: 6px;
@@ -437,10 +439,32 @@
     <div class="section-label">研究問題</div>
     <div class="slide-title">本研究的兩個研究問題</div>
     <div class="slide-title-en">Two Research Questions</div>
-    <ul class="rq-list" style="max-width:800px">
-      <li style="font-size:16px;padding:18px 20px 18px 56px">如何建構一致且可區辨的 AI Persona 供設計研究使用？</li>
-      <li style="font-size:16px;padding:18px 20px 18px 56px">不同性格設定的 AI Persona 在對話回應中呈現什麼樣的結構性差異？</li>
-    </ul>
+    <div class="two-col" style="margin-top:8px">
+      <div class="col" style="padding:24px;border-color:rgba(28,229,141,0.3)">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <span class="material-symbols-rounded" style="font-size:36px">build</span>
+          <div>
+            <div style="font-size:11px;color:var(--accent);font-weight:700;letter-spacing:0.1em">RQ1 — 建構階段</div>
+          </div>
+        </div>
+        <p style="font-size:16px;line-height:1.6">如何建構<strong>一致</strong>且<strong>可區辨</strong>的 AI Persona 供設計研究使用？</p>
+        <div style="margin-top:12px;font-size:12px;color:var(--subtle)">
+          <span class="material-symbols-rounded" style="font-size:14px;vertical-align:middle">arrow_forward</span> 六維度劇本方法論
+        </div>
+      </div>
+      <div class="col" style="padding:24px;border-color:rgba(28,229,141,0.3)">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <span class="material-symbols-rounded" style="font-size:36px">search</span>
+          <div>
+            <div style="font-size:11px;color:var(--accent);font-weight:700;letter-spacing:0.1em">RQ2 — 驗證階段</div>
+          </div>
+        </div>
+        <p style="font-size:16px;line-height:1.6">不同性格設定的 AI Persona 在對話回應中呈現什麼樣的<strong>結構性差異</strong>？</p>
+        <div style="margin-top:12px;font-size:12px;color:var(--subtle)">
+          <span class="material-symbols-rounded" style="font-size:14px;vertical-align:middle">arrow_forward</span> 一致性 × 可區辨性 × 感知量表
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -487,16 +511,29 @@
     <div class="section-label">文獻探討</div>
     <div class="slide-title">現有研究聚焦保真度，忽略了差異的分析價值</div>
     <div class="slide-title-en">Existing research focuses on fidelity, overlooking the analytical value of differences</div>
-    <ul>
-      <li><strong>人物誌生成：</strong>De Paoli（2025）; Shin et al.（2024）結合人類分群與 LLM 摘要</li>
-      <li><strong>品質評估：</strong>Salminen et al.（2024）發現 LLM 生成人物誌傾向產出偏斜特徵</li>
-      <li><strong>互動應用：</strong>Sabbaghan & Brown（2024）以 LLM 驅動人物誌進行對話訓練</li>
-    </ul>
-    <table>
-      <tr><th>既有框架（保真度評估）</th><th>本研究框架（差異分析取向）</th></tr>
-      <tr><td>AI Persona 回應與真人有多相似？</td><td>不同 AI Persona 在結構上有何差異？</td></tr>
-      <tr><td>將 AI 定位為不完美的人類模擬</td><td>差異本身具有分析產出性</td></tr>
-    </table>
+    <div class="phase-row" style="margin-top:4px">
+      <div class="phase-item" style="text-align:center;padding:14px">
+        <span class="material-symbols-rounded" style="font-size:28px;display:block;margin:0 auto 6px">auto_awesome</span>
+        <h4>人物誌生成</h4>
+        <p>De Paoli（2025）<br>Shin et al.（2024）</p>
+      </div>
+      <div class="phase-item" style="text-align:center;padding:14px">
+        <span class="material-symbols-rounded" style="font-size:28px;display:block;margin:0 auto 6px">fact_check</span>
+        <h4>品質評估</h4>
+        <p>Salminen et al.（2024）<br>偏斜特徵風險</p>
+      </div>
+      <div class="phase-item" style="text-align:center;padding:14px">
+        <span class="material-symbols-rounded" style="font-size:28px;display:block;margin:0 auto 6px">chat</span>
+        <h4>互動應用</h4>
+        <p>Sabbaghan & Brown（2024）<br>寫實對話訓練</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin:10px 0;font-size:13px;color:var(--subtle)">▼ 以上皆聚焦「保真度評估」——AI 跟真人有多像？</div>
+    <div class="highlight-box" style="text-align:center;font-size:15px;padding:16px 20px">
+      <span class="material-symbols-rounded" style="font-size:20px">swap_horiz</span>
+      <strong>本研究的框架轉移：</strong>不問「像不像」，問「<strong>差異揭示了什麼？</strong>」<br>
+      <span style="font-size:13px;color:var(--body)">差異本身具有分析產出性 → AI Persona 是設計工具，不是人類替代品</span>
+    </div>
   </div>
 </div>
 
@@ -707,59 +744,52 @@
     <div class="section-label">研究結果</div>
     <div class="slide-title">人物誌感知量表（7 點量表）</div>
     <div class="slide-title-en">Persona Perception Scale (7-point Likert scale)</div>
+    <div style="display:flex;gap:16px;font-size:12px;margin-bottom:8px">
+      <span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:12px;border-radius:3px;background:rgba(28,229,141,0.35)"></span><span style="color:rgba(28,229,141,0.8)">Anne</span></span>
+      <span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:12px;border-radius:3px;background:rgba(28,229,141,0.7)"></span><span style="color:var(--accent)">Emily</span></span>
+    </div>
     <div class="bar-chart">
-      <div class="bar-row" style="margin-bottom:10px">
-        <div></div><div></div>
-        <div class="bar-header" style="color:rgba(28,229,141,0.7)">Anne</div>
-        <div class="bar-header" style="color:var(--accent)">Emily</div>
-      </div>
       <div class="bar-row">
         <div class="bar-label">清晰度</div>
-        <div class="bar-track">
-          <div class="bar-fill anne-bar" style="width:88.9%">6.22</div>
+        <div class="bar-pair">
+          <div class="bar-track"><div class="bar-fill anne-bar" style="width:88.9%">6.22</div></div>
+          <div class="bar-track"><div class="bar-fill emily-bar" style="width:92.9%">6.50</div></div>
         </div>
-        <div class="bar-val anne-val">6.22</div>
-        <div class="bar-val emily-val">6.50</div>
       </div>
       <div class="bar-row">
         <div class="bar-label">一致性</div>
-        <div class="bar-track">
-          <div class="bar-fill anne-bar" style="width:76.1%">5.33</div>
+        <div class="bar-pair">
+          <div class="bar-track"><div class="bar-fill anne-bar" style="width:76.1%">5.33</div></div>
+          <div class="bar-track"><div class="bar-fill emily-bar" style="width:81.0%">5.67</div></div>
         </div>
-        <div class="bar-val anne-val">5.33</div>
-        <div class="bar-val emily-val">5.67</div>
       </div>
       <div class="bar-row">
         <div class="bar-label">同理心</div>
-        <div class="bar-track">
-          <div class="bar-fill anne-bar" style="width:68.3%">4.78</div>
+        <div class="bar-pair">
+          <div class="bar-track"><div class="bar-fill anne-bar" style="width:68.3%">4.78</div></div>
+          <div class="bar-track"><div class="bar-fill emily-bar" style="width:57.1%">4.00</div></div>
         </div>
-        <div class="bar-val anne-val">4.78</div>
-        <div class="bar-val emily-val">4.00</div>
       </div>
       <div class="bar-row">
         <div class="bar-label">完整性</div>
-        <div class="bar-track">
-          <div class="bar-fill anne-bar" style="width:61.9%">4.33</div>
+        <div class="bar-pair">
+          <div class="bar-track"><div class="bar-fill anne-bar" style="width:61.9%">4.33</div></div>
+          <div class="bar-track"><div class="bar-fill emily-bar" style="width:64.3%">4.50</div></div>
         </div>
-        <div class="bar-val anne-val">4.33</div>
-        <div class="bar-val emily-val">4.50</div>
       </div>
       <div class="bar-row">
         <div class="bar-label">使用意願</div>
-        <div class="bar-track">
-          <div class="bar-fill anne-bar" style="width:60.3%">4.22</div>
+        <div class="bar-pair">
+          <div class="bar-track"><div class="bar-fill anne-bar" style="width:60.3%">4.22</div></div>
+          <div class="bar-track"><div class="bar-fill emily-bar" style="width:61.9%">4.33</div></div>
         </div>
-        <div class="bar-val anne-val">4.22</div>
-        <div class="bar-val emily-val">4.33</div>
       </div>
       <div class="bar-row">
         <div class="bar-label">可信度</div>
-        <div class="bar-track">
-          <div class="bar-fill anne-bar" style="width:52.4%">3.67</div>
+        <div class="bar-pair">
+          <div class="bar-track"><div class="bar-fill anne-bar" style="width:52.4%">3.67</div></div>
+          <div class="bar-track"><div class="bar-fill emily-bar" style="width:59.6%">4.17</div></div>
         </div>
-        <div class="bar-val anne-val">3.67</div>
-        <div class="bar-val emily-val">4.17</div>
       </div>
     </div>
     <div class="highlight-box" style="margin-top:6px">
