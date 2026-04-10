@@ -388,6 +388,24 @@
   .script-view::-webkit-scrollbar { width: 6px; }
   .script-view::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
+  /* --- Mobile: side-by-side becomes stacked --- */
+  @media (max-width: 900px) {
+    body.show-notes .slide-wrapper {
+      flex-direction: column; padding-left: 0;
+      justify-content: flex-start; padding-top: 60px;
+      height: auto; min-height: 100vh;
+    }
+    body.show-notes .notes-panel {
+      width: 100%; max-width: 100%; margin-left: 0; margin-top: 16px;
+      max-height: none; border-radius: 0;
+      padding: 24px 20px; font-size: 15px; line-height: 1.9;
+    }
+    body.show-notes .card {
+      width: 100%; height: auto; min-height: 300px;
+      border-radius: 0;
+    }
+  }
+
   /* --- Keyboard hint --- */
   .kb-hint {
     position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
@@ -408,9 +426,10 @@
 </head>
 <body>
 
-<div class="kb-hint" id="hint">← → 或 ↑ ↓ 翻頁 ｜ F 全螢幕 ｜ Esc 退出</div>
+<div class="kb-hint" id="hint">← → 翻頁 ｜ N 切換講稿 ｜ F 全螢幕</div>
 <div class="tab-bar" id="tabBar">
   <button class="tab-btn active" onclick="switchMode('slides')">簡報</button>
+  <button class="tab-btn" onclick="switchMode('sidebyside')">簡報 + 講稿</button>
   <button class="tab-btn" onclick="switchMode('script')">講稿</button>
 </div>
 <div class="script-view" id="scriptView">
@@ -1027,13 +1046,15 @@
   window.switchMode = function(mode) {
     const btns = document.querySelectorAll('.tab-btn');
     btns.forEach(b => b.classList.remove('active'));
-    if (mode === 'script') {
-      btns[1].classList.add('active');
-      document.body.classList.add('mode-script');
-      document.body.classList.remove('show-notes');
-    } else {
+    document.body.classList.remove('mode-script', 'show-notes');
+    if (mode === 'slides') {
       btns[0].classList.add('active');
-      document.body.classList.remove('mode-script');
+    } else if (mode === 'sidebyside') {
+      btns[1].classList.add('active');
+      document.body.classList.add('show-notes');
+    } else if (mode === 'script') {
+      btns[2].classList.add('active');
+      document.body.classList.add('mode-script');
     }
   };
 
