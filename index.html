@@ -438,7 +438,7 @@
 
 <!-- 1. Title -->
 <div class="slide-wrapper title-slide" id="s1" data-notes="各位老師好，我是簡潔安，我的研究題目是「傳統與人工智慧人物誌的設計實務與應用研究」，指導教授是唐玄輝老師。&#10;&#10;開始之前，請各位想像一個場景：一位設計師拿著人物誌，想知道「這個使用者遇到市場大跌會怎麼反應」——但人物誌上只寫了「容易焦慮、會看社群討論」。他只能靠自己腦補。我的研究，就是想解決這個問題。">
-  <div class="card" data-slide="1 / 20">
+  <div class="card" data-slide="1 / 19">
     <div class="title-content">
       <h1>傳統與人工智慧人物誌的<br>設計實務與應用研究</h1>
       <div class="meta">簡潔安｜唐玄輝 指導<br>國立臺灣科技大學 設計系</div>
@@ -451,7 +451,7 @@
 
 <!-- 2. Intro 1/2 -->
 <div class="slide-wrapper" id="s2" data-notes="傳統人物誌從 Cooper 在 1999 年提出以來，一直是設計研究的核心工具。但它有一個根本的限制：建構完成後就固定了。它是一份被閱讀的靜態文件，設計師只能單向地接收資訊，再靠自己去想像使用者會怎麼想、怎麼做。&#10;&#10;AI Persona 改變了這件事。透過提示詞設計，人物誌從靜態文件變成了可以對話的主體。你可以直接問它問題，它會根據設定好的人格來回應。從「被閱讀」變成「可訪談」——這是本質上的轉變。">
-  <div class="card" data-slide="2 / 20" style="flex-direction:row;gap:32px;padding:52px 60px">
+  <div class="card" data-slide="2 / 19" style="flex-direction:row;gap:32px;padding:52px 60px">
     <div class="orb orb-green" style="width:300px;height:300px;top:-80px;right:-80px"></div>
     <div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center">
       <div class="section-label">緒論 1/2</div>
@@ -473,40 +473,42 @@
   </div>
 </div>
 
-<!-- 3. Intro 2/2 -->
-<div class="slide-wrapper" id="s3" data-notes="但這就帶來一個問題：我們要怎麼評估 AI Persona 的好壞？&#10;&#10;過去的研究大多在問「AI 回應得像不像真人」，把相似度當作唯一標準。相似度越高就越好。但我們換一個角度問：不同人格設定的 AI Persona，對同一個問題會產生什麼不同的回應？這些差異本身能揭示什麼？&#10;&#10;也就是說，我們從「保真度評估」轉向「差異分析取向」。AI Persona 的價值不在於以假亂真，而在於透過差異來幫助設計師探索設計空間。">
-  <div class="card" data-slide="3 / 20">
+<!-- 3. Intro 2/2 + Literature (merged) -->
+<div class="slide-wrapper" id="s3" data-notes="模擬人格已經可行，但沒有人問：差異本身有沒有價值？&#10;&#10;研究已經證實 LLM 能模擬人格，具體的生活情境是關鍵，這啟發了我們的六維度設計。但也有研究指出，聊個幾輪人格就飄了，這就是角色漂移。&#10;&#10;現有文獻分三條路——生成、評估、互動，但都在問同一件事：AI 跟真人像不像。我們換一個問法：差異本身揭示了什麼？AI Persona 的價值不在於以假亂真，而在於透過差異來幫助設計師探索設計空間。">
+  <div class="card" data-slide="3 / 19" style="padding:44px 56px">
     <div class="section-label">緒論 2/2</div>
-    <div class="slide-title">AI Persona 的價值在於差異，而非與真人的相似度</div>
-    <div class="slide-title-en">The value of AI Persona lies in difference, not fidelity to real people</div>
-    <div class="two-col" style="margin-top:4px">
-      <div class="col" style="border-color:rgba(255,255,255,0.12);opacity:0.75">
-        <h3 style="color:var(--body);border-bottom-color:var(--subtle)">過去怎麼問</h3>
-        <p style="font-size:15px;margin:10px 0">「AI 回應跟<strong>真人</strong>有多像？」</p>
-        <ul style="font-size:12.5px;color:var(--subtle);margin-top:8px">
-          <li>把 AI 當成人類的不完美替代品</li>
-          <li>用「像不像」衡量價值</li>
-          <li>越像越好</li>
+    <div class="slide-title" style="font-size:22px;margin-bottom:2px">模擬人格已可行，但沒人問：差異本身有沒有價值？</div>
+    <div class="slide-title-en">Personality simulation works — but no one asks: is the difference itself valuable?</div>
+    <div class="two-col" style="margin-top:6px">
+      <div class="col">
+        <h3>LLM 的可能性與限制</h3>
+        <ul style="font-size:13px;margin-bottom:0">
+          <li><strong>Shao et al.（2023）</strong> Character-LLM：模型能在較高層次模擬人格特質</li>
+          <li><strong>Park et al.（2023）</strong> 建立 25 個虛擬代理人，證明具體生活情境是建構可信 AI 角色的關鍵</li>
+          <li><strong>Tu et al.（2024）</strong> 指出角色漂移問題，多輪對話中人格難以穩定</li>
+          <li><strong>Wang et al.（2024）</strong> 即使先進模型也難以在多輪對話中維持人格一致</li>
         </ul>
       </div>
-      <div class="col" style="border-color:rgba(28,229,141,0.3)">
-        <h3>我們怎麼問</h3>
-        <p style="font-size:15px;margin:10px 0">「不同 Persona 之間的<strong>差異</strong>揭示了什麼？」</p>
-        <ul style="font-size:12.5px;margin-top:8px">
-          <li>不同性格 → 必須產生有意義的差異</li>
-          <li>差異本身就是分析的產出</li>
-          <li>AI 不是替代品，而是探索工具</li>
+      <div class="col">
+        <h3>現有研究方向</h3>
+        <ul style="font-size:13px;margin-bottom:0">
+          <li><strong>生成：</strong>De Paoli（2025）；Shin et al.（2024）人類分群 + LLM 摘要</li>
+          <li><strong>評估：</strong>Salminen et al.（2024）LLM 人物誌傾向偏斜特徵</li>
+          <li><strong>互動：</strong>Sabbaghan & Brown（2024）LLM 驅動寫實對話訓練</li>
         </ul>
+        <div style="font-size:12px;color:var(--subtle);margin-top:4px">▲ 皆聚焦「保真度」——AI 與真人有多像？</div>
       </div>
     </div>
-    <div class="highlight-box" style="margin-top:14px;text-align:center;font-size:14px">框架轉移：從「保真度評估」→「<strong>差異分析取向</strong>」
+    <div class="highlight-box" style="margin-top:10px;text-align:center;font-size:14px;padding:14px 20px">
+      <strong>本研究的框架轉移：</strong>不問「像不像」，問「<strong>差異揭示了什麼？</strong>」<br>
+      <span style="font-size:13px;color:var(--body)">差異本身具有分析產出性 → AI Persona 是設計工具，不是人類替代品</span>
     </div>
   </div>
 </div>
 
 <!-- 4. Research Questions -->
 <div class="slide-wrapper" id="s4" data-notes="本研究的目的，是發展一套可操作的 AI Persona 建構方法，並探討不同性格設定的 AI Persona 在設計研究中能產生什麼樣的價值。&#10;&#10;具體來說，我們想解決兩個問題。第一個是建構的問題：目前缺乏系統性的方法來建構穩定的 AI Persona，角色漂移讓現有做法不可靠。所以 RQ1 問的是——如何建構同時具備一致性與可區辨性的 AI Persona？一致性是指同一個角色不會自相矛盾，可區辨性是指不同角色之間的差異要清楚可辨。&#10;&#10;第二個是驗證的問題：就算建構出來了，這些 AI Persona 之間的差異到底有沒有意義？RQ2 問的是——不同性格設定的 AI Persona 在對話回應中，是否呈現結構性的差異？如果差異是結構性的、可預測的，那 AI Persona 就能成為設計研究的可靠工具。">
-  <div class="card" data-slide="4 / 20">
+  <div class="card" data-slide="4 / 19">
     <div class="orb orb-green" style="width:350px;height:350px;bottom:-100px;right:-100px"></div>
     <div class="section-label">研究目的</div>
     <div class="slide-title">發展 AI Persona 建構方法，驗證差異的研究價值</div>
@@ -537,43 +539,9 @@
 </div>
 
 
-<!-- 5. Literature + Research gap (consolidated) -->
-<div class="slide-wrapper" id="s5" data-notes="模擬人格已經可行，但沒有人問：差異本身有沒有價值？&#10;&#10;研究已經證實，LLM 能模擬人格，而且具體的生活情境是關鍵——這啟發了我們的六維度設計。但也有研究指出，聊個幾輪人格就飄了，這就是角色漂移。&#10;&#10;現有文獻分三條路：生成、評估、互動，但都在問同一件事——AI 跟真人像不像。我們換一個問法：差異本身揭示了什麼？這就是我們的切入點。">
-  <div class="card" data-slide="5 / 20">
-    <div class="section-label">文獻探討</div>
-    <div class="slide-title">模擬人格已可行，但沒人問：差異本身有沒有價值？</div>
-    <div class="slide-title-en">Personality simulation works — but no one asks: is the difference itself valuable?</div>
-    <div class="two-col" style="margin-bottom:8px">
-      <div class="col">
-        <h3>LLM 的可能性與限制</h3>
-        <ul style="margin-bottom:0">
-          <li><strong>Shao et al.（2023）</strong> Character-LLM：模型能在較高層次模擬人格特質</li>
-          <li><strong>Park et al.（2023）</strong> 建立 25 個虛擬代理人，證明具體生活情境（職業、人際、日常）是建構可信 AI 角色的關鍵</li>
-          <li><strong>Tu et al.（2024）</strong> 指出角色漂移問題，多輪對話中人格難以穩定</li>
-          <li><strong>Wang et al.（2024）</strong> 即使先進模型也難以在多輪對話中維持人格一致</li>
-        </ul>
-      </div>
-      <div class="col">
-        <h3>現有研究方向</h3>
-        <ul style="margin-bottom:0">
-          <li><strong>生成</strong>：De Paoli（2025）LLM 從訪談產生人物誌；Shin et al.（2024）人類分群 + LLM 摘要優於單獨使用</li>
-          <li><strong>評估</strong>：Salminen et al.（2024）發現 LLM 生成的人物誌傾向產出偏斜特徵</li>
-          <li><strong>互動</strong>：Sabbaghan & Brown（2024）證明 LLM 驅動的人物誌能進行寫實對話訓練</li>
-        </ul>
-        <div style="font-size:12px;color:var(--subtle);margin-top:4px">▲ 皆聚焦「保真度評估」——AI 回應與真人有多相似？</div>
-      </div>
-    </div>
-    <div class="highlight-box" style="text-align:center;font-size:15px;padding:14px 20px">
-      <strong>本研究的框架轉移：</strong>不問「像不像」，問「<strong>差異揭示了什麼？</strong>」<br>
-      <span style="font-size:13px;color:var(--body)">差異本身具有分析產出性 → AI Persona 是設計工具，不是人類替代品</span>
-    </div>
-  </div>
-</div>
-
-
 <!-- 8. Method 1/2 -->
 <div class="slide-wrapper" id="s7" data-notes="我採用設計科學研究方法，分為建構和驗證兩個階段。建構階段透過三階段資料蒐集，發展六維度劇本方法論，建構兩個 AI Persona。驗證階段邀請六位專業設計師進行一致性、可區辨性測試及人物誌感知量表評估。">
-  <div class="card" data-slide="6 / 20">
+  <div class="card" data-slide="5 / 19">
     <div class="section-label">研究方法 1/2</div>
     <div class="slide-title">採設計科學研究方法，分建構與驗證兩階段推進</div>
     <div class="slide-title-en">Design Science Research: construction and evaluation in two phases</div>
@@ -605,7 +573,7 @@
 
 <!-- 9.5 Research context: Z世代 ETF -->
 <div class="slide-wrapper" id="s8" data-notes="研究情境選擇 Z 世代 ETF 投資者。這個族群的特殊性在於：ETF 是理性的長期策略，但 Z 世代持續暴露在即時資訊和情緒刺激中。理性目標與情緒反應之間的張力，讓他們的決策語言充滿猶豫、焦慮和自我懷疑。這種矛盾的語言特質，非常適合用來觀察不同 AI Persona 之間的差異。">
-  <div class="card" data-slide="7 / 20">
+  <div class="card" data-slide="6 / 19">
     <div class="section-label">研究方法 2/2</div>
     <div class="slide-title" style="font-size:22px">研究情境：Z 世代 ETF 投資者</div>
     <div class="slide-title-en">Research context: Gen-Z ETF investors in Taiwan</div>
@@ -623,7 +591,7 @@
 
 <!-- 11. Three phases -->
 <div class="slide-wrapper" id="s9" data-notes="資料蒐集分三個階段。第一階段是次級資料，我用 Gemini 作為資深市場分析師，系統性地研究台灣 Z 世代 ETF 市場，找到核心差異軸——「信心來源」。&#10;&#10;第二階段是初級資料，從 PTT 和 Dcard 擷取兩種投資者的第一人稱敘事：一種向外尋求確認，一種依循內在信念。這一步捕捉了真實的情緒語言和社群用語。&#10;&#10;第三階段用 GPTs 整合前兩階段的資料，依六維度框架生成完整的角色劇本。關鍵是：劇本以後端輸入的方式固定在 GPTs 中，防止角色設定被覆寫。">
-  <div class="card" data-slide="8 / 20">
+  <div class="card" data-slide="7 / 19">
     <div class="section-label">建構階段 1/2</div>
     <div class="slide-title">三階段資料蒐集融合次級研究與真實使用者語言</div>
     <div class="slide-title-en">Three-phase data collection blending secondary research with authentic user language</div>
@@ -655,7 +623,7 @@
 
 <!-- 12. Six dimensions -->
 <div class="slide-wrapper" id="s10" data-notes="六維度劇本方法論是這個研究的核心貢獻。六個維度分別是：基本資訊、世界觀、行為模式、日常情境、心理狀態、語言風格。&#10;&#10;這六個維度不是各自獨立的，而是相互錨定的。基本資訊鎖定身份邊界，世界觀決定他怎麼解讀事情，行為模式讓應對策略可被觀察，日常情境防止角色變得太抽象，心理狀態提供情緒的輪廓，語言風格建立可辨識的語言標記。&#10;&#10;六個維度彼此牽制，壓縮了角色漂移的空間。">
-  <div class="card" data-slide="9 / 20" style="padding:52px 60px">
+  <div class="card" data-slide="8 / 19" style="padding:52px 60px">
     <div class="section-label">建構階段 2/2</div>
     <div class="slide-title" style="font-size:21px;margin-bottom:4px">六個維度相互錨定，鎖定敘事邊界以抑制角色漂移</div>
     <div class="slide-title-en">Six dimensions mutually anchor each other, constraining narrative boundaries to suppress character drift</div>
@@ -682,7 +650,7 @@
 
 <!-- 13. Script output preview -->
 <div class="slide-wrapper" id="s11" data-notes="這是實際產出的劇本結構，從身份目標到語言風格，每個維度都用具體的生活細節來錨定，不是抽象描述。六個維度相互支撐，形成一個完整的角色敘事。">
-  <div class="card" data-slide="10 / 20" style="padding:52px 60px;flex-direction:row;gap:32px">
+  <div class="card" data-slide="9 / 19" style="padding:52px 60px;flex-direction:row;gap:32px">
     <div style="flex:1;min-width:0;display:flex;flex-direction:column;justify-content:flex-start">
       <div class="section-label">建構結果</div>
       <div class="slide-title" style="font-size:21px">六維度劇本方法論的實際產出</div>
@@ -705,7 +673,7 @@
 
 <!-- 14. Persona cards -->
 <div class="slide-wrapper" id="s12" data-notes="基於這套方法，我建構了兩個 AI Persona。Anne，小安，23 歲行銷實習生，外部確認型——她焦慮、容易受社群氛圍影響，做決定前需要看別人怎麼做。Emily，艾蜜莉，25 歲數據分析師，內在信念型——她冷靜、只信任自己的分析框架。&#10;&#10;兩個人面對同樣的市場波動，心態和反應截然不同。這就是我們要觀察的差異。">
-  <div class="card" data-slide="11 / 20" style="padding:52px 60px">
+  <div class="card" data-slide="10 / 19" style="padding:52px 60px">
     <div class="section-label">建構結果</div>
     <div class="slide-title" style="margin-bottom:4px">Anne 與 Emily — 兩種截然不同的使用者心智模型</div>
     <div class="slide-title-en">Anne and Emily — two distinctly different user mental models</div>
@@ -731,7 +699,7 @@
 
 <!-- 15. Evaluation overview -->
 <div class="slide-wrapper" id="s13" data-notes="驗證階段邀請六位具有三年以上經驗、具備使用者研究背景的產品設計師擔任評估者。使用三種工具交叉驗證：一致性測試看同一個角色跨時間的穩定度，可區辨性測試看不同角色之間的差異是否清晰，人物誌感知量表則評估整體品質。">
-  <div class="card" data-slide="12 / 20">
+  <div class="card" data-slide="11 / 19">
     <div class="section-label">驗證階段</div>
     <div class="slide-title">三種評估工具交叉驗證</div>
     <div class="slide-title-en">Three evaluation tools for cross-validation</div>
@@ -763,7 +731,7 @@
 
 <!-- 16. Evaluation process diagram -->
 <div class="slide-wrapper" id="s14" data-notes="這是實際的評估介面。左邊是穩定性測試，中間是差異性評分，右邊是開放回饋。">
-  <div class="card" data-slide="13 / 20" style="padding:52px 60px">
+  <div class="card" data-slide="12 / 19" style="padding:52px 60px">
     <div class="section-label">驗證階段</div>
     <div class="slide-title" style="margin-bottom:4px">評估流程與介面設計</div>
     <div class="slide-title-en">Evaluation process and interface design</div>
@@ -773,7 +741,7 @@
 
 <!-- 17. Consistency results -->
 <div class="slide-wrapper" id="s15" data-notes="一致性測試的做法是這樣的：我們請六位評估者，每位都跟 Anne 進行三輪獨立對話，每一輪都問同樣的六個問題，這六個問題分別對應六維度劇本的六個維度。然後請評估者用五點量表，比較同一個問題在三輪對話中回應的穩定程度。Emily 也做了同樣的流程。&#10;&#10;結果顯示，Anne 的一致性均分是 4.17，Emily 是 4.47，都落在五分量表的高分區間。Emily 分數較高，這跟她理性穩定的人格設定一致——這類角色因為有穩定的邏輯框架，回應本來就傾向更一致。&#10;&#10;Anne 稍低，但這不是方法論的問題——Anne 本身就是一個會猶豫、會焦慮的角色，她的回應在「外部確認型」的框架內浮動，但沒有偏離設定。評估者也觀察到，儘管具體例子有所變化，核心人格特質仍然一致。有人說：「每個問題都蠻穩定的，可以感覺到她不太清楚自己在投資什麼。」Anne 那焦慮、不確定的角色本質貫穿所有輪次。這其實恰好驗證了六維度劇本的彈性：它約束了邊界，但沒有把角色壓成機械式的重複。">
-  <div class="card" data-slide="14 / 20">
+  <div class="card" data-slide="13 / 19">
     <div class="section-label">研究結果 — 一致性</div>
     <div class="slide-title" style="font-size:22px">同一 Persona 跨三輪對話維持穩定回應</div>
     <div class="slide-title-en">Each Persona maintained stable responses across three conversation rounds</div>
@@ -808,7 +776,7 @@
 
 <!-- 18. Distinguishability results -->
 <div class="slide-wrapper" id="s16" data-notes="可區辨性測試的做法是：評估者在跟 Anne 對話完之後，再用同樣的六個問題跟 Emily 進行一輪對話。然後請評估者用五點量表，針對每個問題比較 Anne 和 Emily 的回應差異是否清晰可辨。&#10;&#10;可區辨性是這個研究最強的數據。整體均分 4.58，95.8% 的評分落在 4 到 5 分，代表評估者能非常清楚地分辨兩個角色。&#10;&#10;特別值得注意的是，Q6 語言風格拿到了滿分 5.00，標準差為零——也就是所有評估者一致認為兩個角色的語言風格完全可以區分。Q3 心理狀態和 Q4 行為模式也都拿到 4.75。這代表在情緒壓力情境下，兩個角色的差異最為鮮明。&#10;&#10;有評估者直接說：「冷靜程度差滿多的，Emily 專注在她的原則上，而 Anne 想看看別人怎麼做，所以她比較焦慮。」這正是六維度方法論想要達成的效果——劇本層面的性格差異，成功轉化為對話中可被感知的行為差異。">
-  <div class="card" data-slide="15 / 20">
+  <div class="card" data-slide="14 / 19">
     <div class="section-label">研究結果 — 可區辨性</div>
     <div class="slide-title" style="font-size:22px">不同 Persona 之間的差異清晰可辨</div>
     <div class="slide-title-en">Differences between Personas are clearly distinguishable</div>
@@ -839,7 +807,7 @@
 
 <!-- 17. BAR CHART: Perception -->
 <div class="slide-wrapper" id="s17" data-notes="除了一致性和可區辨性之外，我們還使用了 Salminen 等人在 2020 年開發的人物誌感知量表，用七點量表評估六個維度：可信度、一致性、完整性、清晰度、同理心、使用意願。這個量表的目的是從設計師的角度，整體評估 AI Persona 作為設計工具的品質。&#10;&#10;結果有幾個值得注意的發現。清晰度拿到最高分——Anne 6.22、Emily 6.50——代表角色特質非常鮮明，設計師能快速理解每個角色是什麼樣的人。&#10;&#10;同理心出現有趣的差異：Anne 得分 4.78 高於 Emily 的 4.00。這跟對話互動體驗有關——Anne 經常表達困惑並尋求確認，創造了更多對話空間，讓設計師覺得互動感更強；Emily 的回應較為完整和確定，互動感覺比較單向。&#10;&#10;可信度是兩位 Persona 最低的維度，Anne 3.67、Emily 4.17。但這恰好證明了我們的定位是對的：AI Persona 本來就不該被當成真人替代品。評估者清楚知道這不是真人，但使用意願仍然正面——Anne 4.22、Emily 4.33。這代表它的價值不來自以假亂真，而是來自可對話、可比較、可快速探索的特性。整體而言，兩位 Persona 達到相當的總分，Anne 4.76、Emily 4.86，各有不同優勢。">
-  <div class="card" data-slide="16 / 20">
+  <div class="card" data-slide="15 / 19">
     <div class="section-label">研究結果</div>
     <div class="slide-title">人物誌感知量表（7 點量表）</div>
     <div class="slide-title-en">Persona Perception Scale (7-point Likert scale)</div>
@@ -930,7 +898,7 @@
 
 <!-- 18. Discussion -->
 <div class="slide-wrapper" id="s18" data-notes="AI Persona 做到的事情是：把設計師的內在模擬外顯化了。過去設計師讀人物誌，要自己在腦中想像「這個人會怎麼想」，這是單向的、高度依賴個人詮釋能力的過程。AI Persona 讓這個內在模擬變成了實際的對話，從閱讀理解轉向對話探索。&#10;&#10;但必須強調：AI Persona 的回應來自預設劇本與模型的生成能力，不是真實生命經驗。它是設計研究的輔助工具，不是替代品。">
-  <div class="card" data-slide="17 / 20">
+  <div class="card" data-slide="16 / 19">
     <div class="orb orb-orange" style="width:250px;height:250px;bottom:-80px;right:-60px"></div>
     <div class="section-label">討論</div>
     <div class="slide-title">AI Persona 使設計師的內在模擬外顯化，<br>從閱讀理解轉向對話探索</div>
@@ -949,7 +917,7 @@
 
 <!-- 19. Three roles in design process -->
 <div class="slide-wrapper" id="s19" data-notes="AI Persona 在設計流程中可以扮演三種角色。前期作為準受訪者，幫助團隊在投入大量資源前先初步了解問題空間。中期作為對照基準——就像我們這次研究做的，同一個問題丟給 Anne 和 Emily，Anne 馬上問「大家都怎麼做」，Emily 回去看自己的數據。如果設計團隊要做通知功能，光從這個差異就能預判：通知裡加「社群熱門操作」對 Anne 有用，但對 Emily 是噪音。後期作為演化素材，六維度劇本可以持續用真實資料更新，成為貫穿整個設計流程的研究基礎設施。">
-  <div class="card" data-slide="18 / 20">
+  <div class="card" data-slide="17 / 19">
     <div class="orb orb-green" style="width:280px;height:280px;top:-80px;right:-80px"></div>
     <div class="section-label">討論</div>
     <div class="slide-title">AI Persona 在設計流程中可扮演三種角色</div>
@@ -973,7 +941,7 @@
 
 <!-- Conclusion -->
 <div class="slide-wrapper" id="s20" data-notes="總結來說，六維度劇本方法論有效抑制了角色漂移，確保了 AI Persona 的一致性與可區辨性。而從保真度評估轉向差異分析取向，重新定義了 AI Persona 在設計研究中的價值框架。&#10;&#10;AI Persona 不是更好的人物誌，也不是要來取代真人訪談。它是不同性質的設計研究工具。它的價值在於可對話性、可探索性，以及差異的分析產出性。&#10;&#10;以上是我的報告，謝謝各位老師。">
-  <div class="card" data-slide="19 / 20">
+  <div class="card" data-slide="18 / 19">
     <div class="orb orb-green" style="width:400px;height:400px;top:-120px;right:-120px"></div>
     <div class="section-label">結論</div>
     <div class="slide-title">六維度方法論為 AI 時代設計研究建立可操作的框架</div>
@@ -996,7 +964,7 @@
 
 <!-- 25. Future directions -->
 <div class="slide-wrapper" id="s21" data-notes="最後是未來研究方向。第一，把方法論擴展到不同的使用者類型和領域。第二，發展整合工作流程，把 AI Persona 嵌入設計研究的完整流程。第三，探索共創工作坊的應用。以上是我的報告，謝謝各位老師。">
-  <div class="card" data-slide="20 / 20">
+  <div class="card" data-slide="19 / 19">
     <div class="orb orb-blue" style="width:200px;height:200px;bottom:-40px;left:-40px"></div>
     <div class="section-label">未來建議</div>
     <div class="slide-title">將 AI Persona 帶入更多設計場景</div>
